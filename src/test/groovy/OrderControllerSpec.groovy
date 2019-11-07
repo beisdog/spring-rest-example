@@ -54,6 +54,7 @@ class OrderControllerSpec extends Specification {
 
         def entityOrder = restTemplate.postForEntity('/api/orders/', order, Map)
         print "posted order. Result " + entityOrder.body
+
         then:
         // test order
         entityOrder.statusCode == HttpStatus.CREATED
@@ -67,7 +68,6 @@ class OrderControllerSpec extends Specification {
         def products = new ArrayList<Product>(this.productRepository.findAll())
         def order = new Order(buyersEmail: "beisdog@web.de", products: products)
         this.orderRepository.save(order)
-
 
         when:
         def entity = restTemplate.getForEntity('/api/orders/', Map)

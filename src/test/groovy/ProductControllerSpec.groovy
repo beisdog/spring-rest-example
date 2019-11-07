@@ -33,7 +33,6 @@ class ProductControllerSpec extends Specification {
         then:
         entity.statusCode == HttpStatus.CREATED
         entity.body.name == 'David'
-
     }
 
     def "GET /products/"() {
@@ -79,6 +78,4 @@ class ProductControllerSpec extends Specification {
         print entity.body
         entity.body.content.size == 0
     }
-
-
 }
