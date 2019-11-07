@@ -21,7 +21,7 @@ Orders support
 ## Test
 To run the unit test execute.
 
-```./gradlew testRun```
+```./gradlew test```
 
 ## Run
 
