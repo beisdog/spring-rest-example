@@ -3,10 +3,6 @@ import com.beisert.demo.spring.boot.rest.product.entities.Order
 import com.beisert.demo.spring.boot.rest.product.entities.Product
 import com.beisert.demo.spring.boot.rest.product.repo.OrderRepository
 import com.beisert.demo.spring.boot.rest.product.repo.ProductRepository
-import com.fasterxml.jackson.core.JsonGenerator
-import groovy.json.JsonBuilder
-import groovy.json.JsonOutput
-import org.codehaus.groovy.tools.ast.TransformTestHelper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.embedded.LocalServerPort
 import org.springframework.boot.test.context.SpringBootTest
@@ -18,7 +14,6 @@ import spock.lang.Specification
 
 import java.text.SimpleDateFormat
 
-import static com.fasterxml.jackson.core.JsonGenerator.*
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 
 @SpringBootTest(webEnvironment = RANDOM_PORT, classes = ProductApplication)
@@ -56,7 +51,6 @@ class OrderControllerSpec extends Specification {
         def productList = new ArrayList<Product>(this.productRepository.findAll())
         def ordered = dateFormat.parse("2019-10-01")
         def order = new Order(buyersEmail: "beisdog@web.de", products: productList, orderedAt: ordered);
-        // add all products to order
 
         def entityOrder = restTemplate.postForEntity('/api/orders/', order, Map)
         print "posted order. Result " + entityOrder.body

@@ -1,15 +1,15 @@
 import com.beisert.demo.spring.boot.rest.product.ProductApplication
 import com.beisert.demo.spring.boot.rest.product.entities.Product
 import com.beisert.demo.spring.boot.rest.product.repo.ProductRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
-
-import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpStatus
 import spock.lang.Specification
+
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 
 @SpringBootTest(webEnvironment = RANDOM_PORT, classes = ProductApplication)
 class ProductControllerSpec extends Specification {
